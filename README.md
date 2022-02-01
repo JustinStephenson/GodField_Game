@@ -1,6 +1,10 @@
-# React_App
+## React_App
 Bulding a React application for fun
 NOTE: Still need to come up with main idea for the application!
+
+# Summary
+
+summary of app
 
 # WorkFlow
 1) Create an issue. Make sure to assign the appropriate person, add the apppropraite label, add Project_Board to Projects.
