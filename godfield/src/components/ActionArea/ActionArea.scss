@@ -1,0 +1,15 @@
+@import '../../styles/styles';
+
+.action-area {
+	@include absCenter;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 75%;
+	height: 75%;
+	background-color: whitesmoke;
+	border: 0.5rem solid $color-green-light;
+}

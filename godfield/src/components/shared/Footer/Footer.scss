@@ -1,0 +1,26 @@
+@import '../../../styles/styles';
+
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	position: relative;
+	width: 100%;
+	height: 5rem;
+	background-color: $color-green-dark;
+
+	&__name {
+		font-size: 3rem;
+		margin-left: 7.5rem;
+	}
+
+	&__volume {
+		position: absolute;
+		font-size: 3rem;
+		top: 50%;
+		right: 0%;
+		transform: translate(-50%, -50%);
+		margin-right: -3rem;
+	}
+}
