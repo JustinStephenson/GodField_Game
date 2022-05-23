@@ -1,0 +1,18 @@
+.btn-primary {
+	display: block;
+	font-size: 2rem;
+	color: $color-green-dark;
+	background-color: $color-green-light;
+	border: 0.25rem solid $color-green-light;
+	padding: 0.55rem 2rem;
+
+	&:hover {
+		color: $color-green-light;
+		background-color: $color-green-dark;
+	}
+
+	&:active {
+		color: $color-green-dark;
+		background-color: $color-green-light;
+	}
+}
