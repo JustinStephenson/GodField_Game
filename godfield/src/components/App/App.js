@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActionArea } from '../ActionArea/ActionArea';
-import './App.css';
+import './App.scss';
 
 const App = () => {
 	return (
