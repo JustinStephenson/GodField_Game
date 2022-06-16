@@ -1,0 +1,42 @@
+@import '/src/styles/styles';
+
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	position: relative;
+	width: 100%;
+	height: 5rem;
+	background-color: $color-green-dark;
+
+	&__name {
+		flex: 2;
+		font-size: 3rem;
+		margin-left: 7.5rem;
+	}
+
+	&__chatBox {
+		flex: 6.5;
+	}
+
+	&__chatBoxInput {
+		font-size: 2rem;
+		background-color: lightyellow;
+	}
+
+	&__submit {
+		border: none;
+		font-size: 2rem;
+	}
+
+	&__volume {
+		flex: 3.5;
+		position: absolute;
+		font-size: 3rem;
+		top: 50%;
+		right: 0%;
+		transform: translate(-50%, -50%);
+		margin-right: -3rem;
+	}
+}

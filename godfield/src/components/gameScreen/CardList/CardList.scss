@@ -1,0 +1,24 @@
+@import '/src/styles/styles';
+
+.cardArea {
+	padding: 1rem;
+
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: 1fr 1fr;
+
+	cursor: pointer;
+
+
+	&__card {
+		display: flex;
+		background-color: white;
+		border: 1px solid;
+		height: 10rem;
+		text-align: center;
+		margin-top: 0.5rem;
+		margin-right: 0.25rem;
+		align-items: center;
+		justify-content: center;
+	}
+}

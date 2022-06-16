@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
+import playerReducer from "./playerReducer";
+import cardReducer from "./cardReducer";
 
 export default combineReducers({
-	// temp for now, to stop error
-	temp: () => {
-		return { nothing: null };
-	},
+    playerReducer: playerReducer,
+    cardReducer: cardReducer,
 });
