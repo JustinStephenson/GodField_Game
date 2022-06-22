@@ -49,19 +49,34 @@ io.on("connection", (socket) => {
         io.emit("getUsers", users);
     });
 
+    // Chat area on the bottom
     socket.on("sendMessage", (message) => {
         io.emit("getMessage", { message });
     });
 
+    //Choosing player from the top right bar
     socket.on("playerSelection", ({ selection, userId }) => {
         io.emit("getPlayerSelection", { selection, userId });
     });
 
-    socket.on("getInitialCards", ({ numCards, min, max }) => {
-        const cardList = getCards(numCards, min, max);
-        io.emit("initialCards", {
+    // Distribute initial cards
+    socket.on("getInitialCards", ({ currentUser, numCards, min, max }) => {
+        var cardList = getCards(numCards, min, max);
+        const user = getUser(currentUser);
+
+        io.to(user?.socketId).emit("initialCards", {
             cardList,
         });
+    });
+
+    // An attacker selecting card
+    socket.on("attackerChooseCard", ({ userId, cards }) => {
+        io.emit("cardChooseByAttacker", { userId, cards });
+    });
+
+    // An defender selecting card
+    socket.on("defenderChooseCard", ({ userId, cards }) => {
+        io.emit("cardChooseByDefender", { userId, cards });
     });
 
     socket.on("disconnect", () => {

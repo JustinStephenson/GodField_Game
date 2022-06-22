@@ -1,20 +1,15 @@
 import React from "react";
 import "./Footer.scss";
-import { useEffect, useRef, useState } from "react";
-import { io } from "socket.io-client";
+import { useState } from "react";
+import { socket } from "../../Socket/socket";
 
 export const Footer = () => {
     const [newMessage, setNewMessage] = useState("");
-    const socket = useRef();
-
-    useEffect(() => {
-        socket.current = io("ws://localhost:8888");
-    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        socket.current.emit("sendMessage", newMessage);
+        socket.emit("sendMessage", newMessage);
 
         setNewMessage("");
     };

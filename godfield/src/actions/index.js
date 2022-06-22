@@ -13,6 +13,13 @@ export const removePlayer = (userId) => {
     };
 };
 
+export const addCurrentUser = (userId) => {
+    return {
+        type: "ADD_CURRENT_USER",
+        payload: userId,
+    };
+};
+
 // choosing a player
 export const playerSelected = (userId) => {
     return {
@@ -40,5 +47,11 @@ export const cardUnselectedRedux = (cardId) => {
     return {
         type: "CARDUNSELECTED",
         payload: cardId,
+    };
+};
+
+export const cardUnselectAll = () => {
+    return {
+        type: "UNSELECT_ALL",
     };
 };

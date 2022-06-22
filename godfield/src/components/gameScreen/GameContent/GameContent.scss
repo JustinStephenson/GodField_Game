@@ -57,26 +57,3 @@
 .playerArea {
 	padding: 2rem;
 }
-
-.playerAreaList {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: white;
-	cursor: pointer;
-
-	margin: 0.25rem;
-	border: solid 0.1rem;
-	border-radius: 2rem;
-
-	&__name {
-		margin: 0.25rem;
-		font-size: 1.75rem;
-	}
-
-	&__stats {
-		margin: 0.25rem;
-		font-size: 1.75rem;
-	}
-	
-}

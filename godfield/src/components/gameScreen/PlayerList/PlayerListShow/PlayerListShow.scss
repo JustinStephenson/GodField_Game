@@ -16,9 +16,18 @@
 		font-size: 1.75rem;
 	}
 
+	&__currentUser {
+		background-color:lightgreen;
+		margin: 0.25rem;
+		font-size: 1.75rem;
+	}
+
 	&__stats {
 		margin: 0.25rem;
 		font-size: 1.75rem;
 	}
-	
+}
+
+.playerAreaList.choose {
+	background-color: rgb(190, 190, 190);
 }

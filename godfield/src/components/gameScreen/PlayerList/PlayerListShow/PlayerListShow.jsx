@@ -1,47 +1,59 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./PlayerListShow.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { playerSelected, playerUnselected } from "../../../../actions";
-import { io } from "socket.io-client";
+import { socket } from "../../../Socket/socket";
 
 export const PlayerListShow = ({ userId }) => {
     const playerSelection = useSelector(
-        (state) => state.playerReducer.selected
+        (state) => state.playerReducer.selection
     );
 
-    const playerSelectionUserId = useSelector(
-        (state) => state.playerReducer.userId
-    );
+    const currentUser = useSelector((state) => state.playerReducer.currentUser);
 
     const dispatch = useDispatch();
-    const socket = useRef();
 
-    const [selected, setSelected] = useState(playerSelection);
-
-    useEffect(() => {
-        socket.current = io("ws://localhost:8888");
-    }, []);
-
-    const clickPlayer = () => {
-        if (selected) {
-            setSelected(!selected);
-            dispatch(playerUnselected(userId));
+    const clickPlayer = (id) => {
+        if (playerSelection[0]?.userId === id && playerSelection[0]?.selected) {
+            dispatch(playerUnselected(id));
         } else {
-            setSelected(!selected);
-            dispatch(playerSelected(userId));
+            dispatch(playerSelected(id));
         }
     };
 
     useEffect(() => {
-        socket.current.emit("playerSelection", { selection: selected, userId });
-        socket.current.on("getPlayerSelection", (data) => {
-            //console.log(data.selection, data.userId);
+        socket.emit("playerSelection", {
+            selection: playerSelection.selected,
+            userId,
         });
-    }, [selected]);
+        socket.on("getPlayerSelection", (data) => {
+            if (data.selection) {
+                dispatch(playerSelected(data.userId));
+            } else {
+                dispatch(playerUnselected(data.userId));
+            }
+        });
+    }, []);
 
     return (
-        <div className="playerAreaList" onClick={clickPlayer}>
-            <div className="playerAreaList__name">{userId}</div>
+        <div
+            className={
+                playerSelection[0]?.userId === userId &&
+                playerSelection[0]?.selected
+                    ? "playerAreaList choose"
+                    : "playerAreaList"
+            }
+            onClick={() => clickPlayer(userId)}
+        >
+            <div
+                className={
+                    currentUser === userId
+                        ? "playerAreaList__currentUser"
+                        : "playerAreaList__name"
+                }
+            >
+                {userId}
+            </div>
             <div className="playerAreaList__stats">Stats</div>
         </div>
     );

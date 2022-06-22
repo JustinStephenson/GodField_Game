@@ -21,4 +21,20 @@
 		align-items: center;
 		justify-content: center;
 	}
+	
+	&__cardChoosen {
+		display: flex;
+		background-color: gray;
+		border: 1px solid;
+		height: 10rem;
+		text-align: center;
+		margin-top: 0.5rem;
+		margin-right: 0.25rem;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.getCard {
+	background-color: white;
 }
